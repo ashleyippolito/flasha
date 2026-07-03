@@ -3,20 +3,27 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* FLASHA brand palette, sampled from the official 2026 convention logo */
+  --flasha-teal: #00a6a6;
+  --flasha-teal-dark: #018585;
+  --flasha-orange: #f7930d;
+  --flasha-gold: #f7a600;
+  --flasha-coral: #ea4e5d;
+  --flasha-sky: #50c9e6;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-flasha-teal: var(--flasha-teal);
+  --color-flasha-teal-dark: var(--flasha-teal-dark);
+  --color-flasha-orange: var(--flasha-orange);
+  --color-flasha-gold: var(--flasha-gold);
+  --color-flasha-coral: var(--flasha-coral);
+  --color-flasha-sky: var(--flasha-sky);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
