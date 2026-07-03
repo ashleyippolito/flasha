@@ -41,6 +41,18 @@ export default function PasswordGate({ children }: { children: React.ReactNode }
             <h1 className="text-lg font-semibold text-flasha-teal-dark">FLASHA 2026 Schedule</h1>
             <p className="text-sm text-slate-500 mt-1">Enter the password to view the conference itinerary.</p>
           </div>
+
+          <div className="rounded-lg border-2 border-flasha-coral bg-flasha-coral/10 px-3 py-2.5">
+            <p className="text-sm font-semibold text-flasha-coral">
+              ⚠ Use the same device and browser every time.
+            </p>
+            <p className="text-xs text-slate-600 mt-1">
+              Your saved schedule and notes live only in this browser on this device — there are no
+              accounts, so nothing syncs. Switching phones, computers, or browsers (or clearing your
+              browser data) means starting over.
+            </p>
+          </div>
+
           <input
             type="password"
             autoFocus
