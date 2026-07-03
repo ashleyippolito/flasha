@@ -23,12 +23,18 @@ export default function MySchedulePage() {
           </p>
         </div>
         {selectedSessions.length > 0 && (
-          <button
-            onClick={() => downloadScheduleICS(selectedSessions)}
-            className="text-sm font-medium px-4 py-2 rounded-lg bg-flasha-teal text-white hover:bg-flasha-teal-dark transition"
-          >
-            Download All to Calendar (.ics)
-          </button>
+          <div className="text-right">
+            <button
+              onClick={() => downloadScheduleICS(selectedSessions)}
+              className="text-sm font-medium px-4 py-2 rounded-lg bg-flasha-teal text-white hover:bg-flasha-teal-dark transition"
+            >
+              Download All to Calendar (.ics)
+            </button>
+            <p className="text-xs text-slate-400 mt-1">
+              Import the .ics file into Google Calendar for your whole schedule at once, or use the
+              &ldquo;Google Calendar&rdquo; link on each session below to add them one at a time.
+            </p>
+          </div>
         )}
       </div>
 

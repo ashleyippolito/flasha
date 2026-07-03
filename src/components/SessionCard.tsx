@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Session } from "@/data/sessions";
 import { formatTimeRange } from "@/lib/time";
-import { downloadSessionICS } from "@/lib/ics";
+import { downloadSessionICS, googleCalendarUrl } from "@/lib/ics";
 import { useMySchedule } from "@/lib/useMySchedule";
 import { getSpeakersForSession } from "@/lib/speakerLookup";
 
@@ -96,10 +96,27 @@ export default function SessionCard({ session }: { session: Session }) {
             onClick={() => downloadSessionICS(session)}
             disabled={!hasTime}
             className="text-xs font-medium px-3 py-1.5 rounded-lg border border-slate-300 text-slate-700 hover:border-flasha-teal disabled:opacity-40 disabled:cursor-not-allowed transition"
-            title={hasTime ? "Download .ics for this session" : "Time not yet announced"}
+            title={hasTime ? "Download a .ics file (Apple Calendar, Outlook, etc.)" : "Time not yet announced"}
           >
-            Add to Calendar
+            Add to Calendar (.ics)
           </button>
+          {hasTime ? (
+            <a
+              href={googleCalendarUrl(session) ?? undefined}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-medium px-3 py-1.5 rounded-lg border border-slate-300 text-slate-700 hover:border-flasha-teal transition"
+            >
+              Google Calendar
+            </a>
+          ) : (
+            <span
+              className="text-xs font-medium px-3 py-1.5 rounded-lg border border-slate-300 text-slate-400 opacity-40 cursor-not-allowed"
+              title="Time not yet announced"
+            >
+              Google Calendar
+            </span>
+          )}
           {hasDetails && (
             <button
               onClick={() => setShowDetails((v) => !v)}

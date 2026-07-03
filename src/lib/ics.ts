@@ -80,3 +80,27 @@ export function downloadScheduleICS(sessions: Session[]) {
   if (!withTimes.length) return;
   download("flasha2026-my-schedule.ics", buildCalendar(withTimes));
 }
+
+// Conference runs in Florida (Eastern Time).
+const CONFERENCE_TIMEZONE = "America/New_York";
+
+export function googleCalendarUrl(session: Session): string | null {
+  if (!session.startTime || !session.endTime) return null;
+
+  const descriptionParts = [];
+  if (session.presenters) descriptionParts.push(`Presenter(s): ${session.presenters}`);
+  if (session.note) descriptionParts.push(session.note);
+
+  const params = new URLSearchParams({
+    action: "TEMPLATE",
+    text: session.title,
+    dates: `${toICSDateTime(session.date, session.startTime)}/${toICSDateTime(session.date, session.endTime)}`,
+    ctz: CONFERENCE_TIMEZONE,
+    location: session.room,
+  });
+  if (descriptionParts.length) {
+    params.set("details", descriptionParts.join(" — "));
+  }
+
+  return `https://calendar.google.com/calendar/render?${params.toString()}`;
+}
