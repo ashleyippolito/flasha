@@ -76,6 +76,14 @@ export default function SessionCard({ session }: { session: Session }) {
 
       {!isBreak && (
         <div className="flex flex-wrap items-center gap-2 pt-1">
+          {hasDetails && (
+            <button
+              onClick={() => setShowDetails((v) => !v)}
+              className="text-xs font-medium px-3 py-1.5 rounded-lg border border-slate-300 text-slate-700 hover:border-flasha-teal transition"
+            >
+              {showDetails ? "Hide Details" : "Session Details"}
+            </button>
+          )}
           <button
             onClick={() => toggleSelected(session.id)}
             className={`text-xs font-medium px-3 py-1.5 rounded-lg border transition ${
@@ -91,14 +99,6 @@ export default function SessionCard({ session }: { session: Session }) {
             className="text-xs font-medium px-3 py-1.5 rounded-lg border border-slate-300 text-slate-700 hover:border-flasha-teal transition"
           >
             {showNotes ? "Hide Notes" : note ? "Edit Notes" : "Add Notes"}
-          </button>
-          <button
-            onClick={() => downloadSessionICS(session)}
-            disabled={!hasTime}
-            className="text-xs font-medium px-3 py-1.5 rounded-lg border border-slate-300 text-slate-700 hover:border-flasha-teal disabled:opacity-40 disabled:cursor-not-allowed transition"
-            title={hasTime ? "Download a .ics file (iOS/Apple Calendar, Outlook, etc.)" : "Time not yet announced"}
-          >
-            + iOS Calendar
           </button>
           {hasTime ? (
             <a
@@ -117,14 +117,14 @@ export default function SessionCard({ session }: { session: Session }) {
               + Google Calendar
             </span>
           )}
-          {hasDetails && (
-            <button
-              onClick={() => setShowDetails((v) => !v)}
-              className="text-xs font-medium px-3 py-1.5 rounded-lg border border-slate-300 text-slate-700 hover:border-flasha-teal transition"
-            >
-              {showDetails ? "Hide Details" : "Session Details"}
-            </button>
-          )}
+          <button
+            onClick={() => downloadSessionICS(session)}
+            disabled={!hasTime}
+            className="text-xs font-medium px-3 py-1.5 rounded-lg border border-slate-300 text-slate-700 hover:border-flasha-teal disabled:opacity-40 disabled:cursor-not-allowed transition"
+            title={hasTime ? "Download a .ics file (iOS/Apple Calendar, Outlook, etc.)" : "Time not yet announced"}
+          >
+            + iOS Calendar
+          </button>
         </div>
       )}
 
