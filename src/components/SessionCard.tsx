@@ -117,7 +117,7 @@ export default function SessionCard({ session }: { session: Session }) {
           onChange={(e) => setNote(session.id, e.target.value)}
           placeholder="Your notes for this session…"
           rows={3}
-          className="w-full text-sm rounded-lg border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-flasha-teal"
+          className="w-full text-base rounded-lg border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-flasha-teal"
         />
       )}
 

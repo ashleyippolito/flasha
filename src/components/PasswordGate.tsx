@@ -62,7 +62,7 @@ export default function PasswordGate({ children }: { children: React.ReactNode }
               setError(false);
             }}
             placeholder="Password"
-            className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-flasha-teal"
+            className="w-full rounded-lg border border-slate-300 px-3 py-2 text-base focus:outline-none focus:ring-2 focus:ring-flasha-teal"
           />
           <p className="text-xs text-slate-400 -mt-2">Hint: conference name + year, no spaces.</p>
           {error && <p className="text-sm text-flasha-coral">Incorrect password. Try again.</p>}

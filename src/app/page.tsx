@@ -60,12 +60,12 @@ export default function Home() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search by title or presenter…"
-          className="flex-1 rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-flasha-teal"
+          className="flex-1 rounded-lg border border-slate-300 px-3 py-2 text-base focus:outline-none focus:ring-2 focus:ring-flasha-teal"
         />
         <select
           value={room}
           onChange={(e) => setRoom(e.target.value)}
-          className="rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-flasha-teal sm:w-48"
+          className="rounded-lg border border-slate-300 px-3 py-2 text-base focus:outline-none focus:ring-2 focus:ring-flasha-teal sm:w-48"
         >
           <option value="all">All Rooms</option>
           {rooms.map((r) => (
