@@ -96,9 +96,9 @@ export default function SessionCard({ session }: { session: Session }) {
             onClick={() => downloadSessionICS(session)}
             disabled={!hasTime}
             className="text-xs font-medium px-3 py-1.5 rounded-lg border border-slate-300 text-slate-700 hover:border-flasha-teal disabled:opacity-40 disabled:cursor-not-allowed transition"
-            title={hasTime ? "Download a .ics file (Apple Calendar, Outlook, etc.)" : "Time not yet announced"}
+            title={hasTime ? "Download a .ics file (iOS/Apple Calendar, Outlook, etc.)" : "Time not yet announced"}
           >
-            Add to Calendar (.ics)
+            + iOS Calendar
           </button>
           {hasTime ? (
             <a
@@ -107,14 +107,14 @@ export default function SessionCard({ session }: { session: Session }) {
               rel="noopener noreferrer"
               className="text-xs font-medium px-3 py-1.5 rounded-lg border border-slate-300 text-slate-700 hover:border-flasha-teal transition"
             >
-              Google Calendar
+              + Google Calendar
             </a>
           ) : (
             <span
               className="text-xs font-medium px-3 py-1.5 rounded-lg border border-slate-300 text-slate-400 opacity-40 cursor-not-allowed"
               title="Time not yet announced"
             >
-              Google Calendar
+              + Google Calendar
             </span>
           )}
           {hasDetails && (
